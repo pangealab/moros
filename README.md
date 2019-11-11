@@ -93,3 +93,54 @@
     ```
     watch aws ec2 describe-import-image-tasks --import-task-ids import-ami-0d0db0d9ec4761327 --profile=advlab
     ```
+
+    > NOTES: 
+    - Be patient, this takes several minutes to complete
+    - Status Message will cycle from `pending > converting > updating > booting > preparing api > completed`
+    - Whem complete Note the ImageId (e.g. ami-0a8c932ff9493e4b9 )
+
+1. Change the Image Name
+
+    ```
+    aws ec2 copy-image --source-image-id ami-0a8c932ff9493e4b9 --source-region us-east-2 --region us-east-2 --name "miq-ivanchuk-1" --profile=advlab
+    ```
+
+1. Delete Working Image
+
+    ```
+    aws ec2 deregister-image --image-id ami-08c93254610d031ec --profile=advlab
+    ```
+
+1. Launch AMI "miq-ivanchuk-1" as "t2.xlarge" and name "ManageIQ Server"
+
+1. Associate Instance to Elastic IP (e.g. 3.134.171.101)
+
+1. Associate DNS to Elastic IP (e.g. https://manageiq.sytes.net)
+
+1. Test Connection using: https://manageiq.sytes.net
+
+    >NOTE: Use intial credentials `admin/smartvm` and change the password
+
+# Troubleshoting
+
+* If the EVM Process does not start as expected you can reset the database as follows:
+
+    1. SSH to Server
+
+    1. Swith to Root User
+
+        ```
+        sudo su
+        ```
+
+    1. Run the Appliance Console utility
+
+        ```
+        appliance_console
+        ```
+
+    1. Select `7. Configure Database`
+
+    1. Select `4. Reset Configured Database`
+
+

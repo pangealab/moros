@@ -72,13 +72,24 @@
     aws iam put-role-policy --role-name vmimport --policy-name vmimport --policy-document file://role-policy.json --profile=advlab
     ```
 
-1. Edit Container File (container.json) and set
+1. Edit AWS Container File (container.json) and set
 
     ```
     S3Bucket: (e.g. advlab-manageiq-bucket)
     S3Key: (e.g. manageiq-ec2-ivanchuk-1-201909111431-9f959bdc02.vhd)
     ```
 
+1. Import AWS AMI Image
+
+    ```
+    aws ec2 import-image --description "MIQ Ivanchuk 1" --disk-containers file://container.json --region us-east-2 --profile=advlab
+    ```
+
+    > NOTE: Note the Import Task ID (e.g. import-ami-0d0db0d9ec4761327)
 
 
+1. Periodically check the import status
 
+    ```
+    watch aws ec2 describe-import-image-tasks --import-task-ids import-ami-0d0db0d9ec4761327 --profile=advlab
+    ```

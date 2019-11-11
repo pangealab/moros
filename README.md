@@ -50,8 +50,34 @@
        s3://advlab-manageiq-bucket --expected-size=$((1024*1024*1024*10))
     ```
 
-1. Terminate the temporary "filetransfer" instance    
+1. Terminate the temporary "filetransfer" instance
 
+1. Create AWS Role
+
+    ```
+    aws iam create-role --role-name vmimport --assume-role-policy-document file://vm-import.json --profile=advlab
+    ```
+
+1. Edit AWS role-policy.json and set Resource to your S3 Bucket (e.g. advlab-manageiq-bucket)
+
+    ```
+    "Resource": [
+        "arn:aws:s3:::advlab-manageiq-bucket",
+        "arn:aws:s3:::advlab-manageiq-bucket/*"
+    ```
+
+1. Create AWS policy
+
+    ```
+    aws iam put-role-policy --role-name vmimport --policy-name vmimport --policy-document file://role-policy.json --profile=advlab
+    ```
+
+1. Edit Container File (container.json) and set
+
+    ```
+    S3Bucket: (e.g. advlab-manageiq-bucket)
+    S3Key: (e.g. manageiq-ec2-ivanchuk-1-201909111431-9f959bdc02.vhd)
+    ```
 
 
 

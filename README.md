@@ -50,7 +50,7 @@
        s3://advlab-manageiq-bucket --expected-size=$((1024*1024*1024*10))
     ```
 
-1. Terminate "filetransfer" instance    
+1. Terminate the temporary "filetransfer" instance    
 
 
 

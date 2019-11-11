@@ -125,22 +125,20 @@
 
 * If the EVM Process does not start as expected you can reset the database as follows:
 
-    1. SSH to Server
+    * SSH to Server
 
-    1. Swith to Root User
+    * Switch to Root User
 
         ```
         sudo su
         ```
 
-    1. Run the Appliance Console utility
+    * Run the Appliance Console utility
 
         ```
         appliance_console
         ```
 
-    1. Select `7. Configure Database`
+    * Select `7. Configure Database`
 
-    1. Select `4. Reset Configured Database`
-
-
+    * Select `4. Reset Configured Database`

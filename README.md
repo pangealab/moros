@@ -125,7 +125,7 @@
 
 * If the EVM Process does not start as expected you can reset the database as follows:
 
-    * SSH to Server
+    * SSH to Master
 
     * Switch to Root User
 

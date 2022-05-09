@@ -15,7 +15,7 @@
     aws s3 mb s3://advlab-manageiq-bucket --profile advlab
     ```
 
-1. Create a temporary EC2 Server called "filetransfer" on "DevOps Demo VPC" as "t2.micro" with a "16G" EBS Disk
+1. Create a temporary Ubuntu (e.g. v20) EC2 Server called "filetransfer" on "DevOps Demo VPC" as "t2.micro" with a "16G" EBS Disk
 
 1. SSH to "filetransfer"
 
@@ -82,7 +82,7 @@
 1. Import AWS AMI Image
 
     ```
-    aws ec2 import-image --description "MIQ Ivanchuk 1" --disk-containers file://container.json --region us-east-2 --profile=advlab
+    aws ec2 import-image --description "MIQ Morphy 1" --disk-containers file://container.json --region us-east-2 --profile=advlab
     ```
 
     > NOTE: Note the Import Task ID (e.g. import-ami-0d0db0d9ec4761327)
@@ -97,21 +97,21 @@
     > NOTES: 
     - Be patient, this takes several minutes to complete
     - Status Message will cycle from `pending > converting > updating > booting > preparing api > completed`
-    - Whem complete Note the ImageId (e.g. ami-0a8c932ff9493e4b9 )
+    - Whem complete Note the ImageId (e.g. ami-08ed213f7c2e45ce0 )
 
 1. Change the Image Name
 
     ```
-    aws ec2 copy-image --source-image-id ami-0a8c932ff9493e4b9 --source-region us-east-2 --region us-east-2 --name "miq-ivanchuk-1" --profile=advlab
+    aws ec2 copy-image --source-image-id ami-08ed213f7c2e45ce0 --source-region us-east-2 --region us-east-2 --name "miq-morphy-1" --profile=advlab
     ```
 
 1. Delete Working Image
 
     ```
-    aws ec2 deregister-image --image-id ami-08c93254610d031ec --profile=advlab
+    aws ec2 deregister-image --image-id ami-08ed213f7c2e45ce0 --profile=advlab
     ```
 
-1. Launch AMI "miq-ivanchuk-1" as "t2.xlarge" and name "ManageIQ Server"
+1. Launch AMI "miq-morphy-1" as "t2.xlarge" and name "ManageIQ Server"
 
 1. Associate Instance to Elastic IP (e.g. 3.134.171.101)
 

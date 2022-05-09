@@ -1,6 +1,6 @@
 ![Intro](./docs/manageiq-ui.jpg)
 
-[ManageIQ](https://www.manageiq.org) open source cloud management platform for AWS. It was founded by Red Hat as a community project in 2014, and forms the basis for its CloudForms product. We will use this project to investigate how it performs discovery on AWS, OpenShift/K8s and compare with ServiceNow discovery. We will download the latest ManageIQ AWS baseline which is distributed as an [AWS AMI Appliance ](http://releases.manageiq.org/manageiq-ec2-ivanchuk-1.zip) and comes complete with its own pre-configured PosgreSQL database.
+[ManageIQ](https://www.manageiq.org) open source cloud management platform for AWS. It was founded by Red Hat as a community project in 2014, and forms the basis for its CloudForms product. We will use this project to investigate how it performs discovery on AWS, OpenShift/K8s and compare with ServiceNow discovery. We will download the latest ManageIQ AWS baseline which is distributed as an [AWS AMI Appliance ](https://www.manageiq.org/blog/tags/releases/) and comes complete with its own pre-configured PosgreSQL database.
 
 # Prerequisites
 
@@ -19,17 +19,17 @@
 
 1. SSH to "filetransfer"
 
-1. Download Latest Release for AWS (e.g. Ivanchuk 2.2 GB)
+1. Download Latest Release for AWS (e.g. ManageIQ Morphy latest development 1.2 GB)
 
     ```
-    wget http://releases.manageiq.org/manageiq-ec2-ivanchuk-1.zip
+    wget https://releases.manageiq.org/manageiq-ec2-devel.zip
     ```
 
 1. Install some tools we may need
 
     ```
-    sudo amazon-linux-extras install -y epel
-    sudo yum install -y pv
+    sudo apt-get update
+    sudo apt install awscli zip unzip
     ```
 
 1. Configure AWS Profile and provide your AWS Keys

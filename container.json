@@ -4,7 +4,7 @@
         "Format": "vhd",
         "UserBucket": {
             "S3Bucket": "advlab-manageiq-bucket",
-            "S3Key": "manageiq-ec2-morphy-1-202202102327.vhd"
+            "S3Key": "manageiq-azure-morphy-1-202202102327.vhd"
         }
     }
 ]

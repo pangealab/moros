@@ -76,13 +76,13 @@
 
     ```
     S3Bucket: (e.g. advlab-manageiq-bucket)
-    S3Key: (e.g. manageiq-ec2-ivanchuk-1-201909111431-9f959bdc02.vhd)
+    S3Key: (e.g. manageiq-ec2-lasker-1-202107141428.vhd)
     ```
 
 1. Import AWS AMI Image
 
     ```
-    aws ec2 import-image --description "MIQ Morphy 1" --disk-containers file://container.json --region us-east-2 --profile=advlab
+    aws ec2 import-image --description "MIQ Lasker 1" --disk-containers file://container.json --region us-east-2 --profile=advlab
     ```
 
     > NOTE: Note the Import Task ID (e.g. import-ami-0d0db0d9ec4761327)
@@ -139,6 +139,8 @@
         appliance_console
         ```
 
-    * Select `7. Configure Database`
-
+    * Select `5. Configure Application`
+  
     * Select `4. Reset Configured Database`
+
+    * Select `13. Start EVM Server Processes`

@@ -4,7 +4,7 @@
         "Format": "vhd",
         "UserBucket": {
             "S3Bucket": "advlab-manageiq-bucket",
-            "S3Key": "manageiq-ec2-master-202205090036.vhd"
+            "S3Key": "manageiq-ec2-lasker-1-202107141428.vhd"
         }
     }
 ]

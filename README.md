@@ -19,10 +19,10 @@
 
 1. SSH to "filetransfer"
 
-1. Download Latest Release for AWS (e.g. ManageIQ Morphy latest development 1.2 GB)
+1. Download Latest Release for AWS (e.g. ManageIQ Lasker GA 1.2 GB)
 
     ```
-    wget https://releases.manageiq.org/manageiq-ec2-devel.zip
+    wget https://releases.manageiq.org/manageiq-ec2-lasker-1.zip
     ```
 
 1. Install some tools we may need
@@ -45,7 +45,7 @@
 1. Copyt the ManageIQ Image to the S3 Bucket (9.2 GB Unzipped)
 
     ```
-    unzip manageiq-ec2-ivanchuk-1.zip
+    unzip manageiq-ec2-lasker-1.zip
     aws s3 cp manageiq*.vhd \
        s3://advlab-manageiq-bucket --expected-size=$((1024*1024*1024*10))
     ```
@@ -125,7 +125,7 @@
 
 * If the EVM Process does not start as expected you can reset the database as follows:
 
-    * SSH to Master
+    * SSH to Master as `cloud-user`
 
     * Switch to Root User
 

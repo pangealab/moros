@@ -19,7 +19,7 @@
 
 1. SSH to "filetransfer"
 
-1. Check Latest Release in: https://releases.manageiq.org/index.html
+1. Check latest EC2 release in: https://releases.manageiq.org/index.html
 
 1. Download Latest Release for AWS
 

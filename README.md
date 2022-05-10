@@ -19,10 +19,10 @@
 
 1. SSH to "filetransfer"
 
-1. Download Latest Release for AWS (e.g. ManageIQ Lasker GA 1.2 GB)
+1. Download Latest Release for AWS
 
     ```
-    wget https://releases.manageiq.org/manageiq-ec2-lasker-1.zip
+    wget https://releases.manageiq.org/manageiq-ec2-najdorf-20220509.zip
     ```
 
 1. Install some tools we may need
@@ -45,7 +45,7 @@
 1. Copyt the ManageIQ Image to the S3 Bucket (9.2 GB Unzipped)
 
     ```
-    unzip manageiq-ec2-lasker-1.zip
+    unzip manageiq-azure-morphy-1.zip
     aws s3 cp manageiq*.vhd \
        s3://advlab-manageiq-bucket --expected-size=$((1024*1024*1024*10))
     ```
@@ -76,13 +76,13 @@
 
     ```
     S3Bucket: (e.g. advlab-manageiq-bucket)
-    S3Key: (e.g. manageiq-ec2-lasker-1-202107141428.vhd)
+    S3Key: (e.g. manageiq-ec2-najdorf-202205090034.vhd)
     ```
 
 1. Import AWS AMI Image
 
     ```
-    aws ec2 import-image --description "MIQ Lasker 1" --disk-containers file://container.json --region us-east-2 --profile=advlab
+    aws ec2 import-image --description "MIQ Najdorf 20220509" --disk-containers file://container.json --region us-east-2 --profile=advlab
     ```
 
     > NOTE: Note the Import Task ID (e.g. import-ami-0d0db0d9ec4761327)
